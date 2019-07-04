@@ -1,0 +1,122 @@
+<!-- <section-one-view></section-one-view>
+<section-two-view></section-two-view>
+<section-three-view></section-three-view> -->
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-12" style="margin:20% 40%" *ngIf="!data.section">
+            <img src="assets/images/basicloader.gif" alt="" srcset="">
+        </div>
+    </div>
+
+    <div class="row animated slideInLeft mt-3" *ngIf="data?.section">
+        <div id="style-2" class="col-md" style="overflow-y:scroll !important;overflow-x:hidden !important;height:90vh ;width:100% !important">
+            <div class="row justify-content-center">
+                <ng-container *ngFor="let sec of data?.section">
+                    <ng-container *ngIf="sec?.imageViewType===1">
+                        <section-one-view class="width-100" [data]="sec" (showModal)="showChildModal($event)">
+                        </section-one-view>
+
+
+                    </ng-container>
+                    <hr>
+                    <ng-container *ngIf="sec?.imageViewType===2">
+                        <section-two-view class="width-100" [data]="sec" (showModal)="showChildModal($event)">
+                        </section-two-view>
+
+                    </ng-container>
+                    <hr>
+                    <!-- [productList]="productList" [isEditable]="isEditable" (productList)="calculateMSLAgain($event)" -->
+                    <ng-container *ngIf="sec?.imageViewType===3">
+                        <!-- (productList)="calculateMSLAgain($event)" -->
+                        <section-three-view class="width-100" [data]="sec" (showModal)="showChildModal($event)">
+                        </section-three-view>
+                    </ng-container>
+
+                    <ng-container *ngIf="sec?.imageViewType===4">
+                        <!-- (productList)="calculateMSLAgain($event)" -->
+                        <section-four class="width-100" [data]="sec">
+                        </section-four>
+                    </ng-container>
+                </ng-container>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+        <div class="col-md-3" *ngIf="data?.criteria && isFromShop">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-bordered" style="line-height:1">
+
+                            <tr *ngFor="let item of data?.criteria;let i=index">
+                                <td>
+                                    <label class="container">{{item?.title}}
+                                        <input type="radio" name="radio" [value]="item?.id" [(ngModel)]="selectedCriteria">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    {{item?.score}}
+                                </td>
+
+                            </tr>
+
+                        </table>
+                        <div class="row">
+                            <div class="col-md-12" style="text-align: end; padding: 0 20px 5px 0; ">
+                                <button [disabled]="loading" class="btn btn-primary" (click)="evaluateShop()">
+                                    <i [ngClass]="{'fa fa-spinner fa-spin': loading}"></i>
+                                    Evaluate</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <ng-container class="mt-5 justify-content-center " *ngIf="data?.shopDetails?.tagsList ">
+                        <div class="col-md-11 mt-5 ">
+                            <table class="table table-bordered ">
+                                <tr *ngFor="let tab of data?.shopDetails?.tagsList;let j=index ">
+                                    <th style="width:50%;background: lightgray; ">{{tab?.heading}}</th>
+                                    <td style="width:50%;word-break: break-word ">{{tab?.value}}</td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" (click)="rotateImage()" style="cursor:pointer" title="click to rotate Image" [ngClass]="{'rotated-image-0': rotationDegree==0, 'rotated-image-90': rotationDegree==90, 'rotated-image-180': rotationDegree==180, 'rotated-image-270': rotationDegree==270, 'rotated-image-360': rotationDegree==360}">
+            <!-- {{rotationDegree}} -->
+
+            <!-- <div class="modal-header">
+                <h4 id="dialog-child-name" class="modal-title pull-left">{{selectedShop.title}}</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div> -->
+            <div class="modal-body" style="padding:10px">
+                <img width=100% src="{{ip}}{{selectedShop.url}}" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+</div>
