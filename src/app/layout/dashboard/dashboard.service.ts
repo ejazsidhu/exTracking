@@ -5,12 +5,13 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DashboardService {
-  ip='http://merch.concavetech.com/'
+  // ip='http://localhost:8080/census/'
  
   // ip: any='http://192.168.3.209:8080/audit/';
   // ip: any='http://192.168.3.189:8080/audit/';
   // ip: any='http://192.168.3.94:8080/audit/';
-
+  ip: any='http://192.168.3.94:8080/census/';
+  
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
