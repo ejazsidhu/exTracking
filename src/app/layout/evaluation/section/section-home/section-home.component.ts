@@ -51,8 +51,8 @@ export class SectionHomeComponent implements OnInit {
       this.surveyId = params.id;
 
       let obj = {
-        surveyId: this.surveyId,
-        userTypeId: localStorage.getItem('user_type')
+        merchandiserShopId: this.surveyId,
+        // userTypeId: localStorage.getItem('user_type')
       }
 
       this.getData(obj)
