@@ -21,6 +21,9 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
 import { ShopDetailComponent } from './inner-pages/shop-detail/shop-detail.component';
 import { ModalModule } from 'ngx-bootstrap';
 import { UniqueBaseProductivityComponent } from './inner-pages/unique-base-productivity/unique-base-productivity.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+
+
 @NgModule({
     imports: [
         CommonModule,
@@ -42,7 +45,8 @@ import { UniqueBaseProductivityComponent } from './inner-pages/unique-base-produ
         MatFormFieldModule,
         MatInputModule,
         Ng2OrderModule,
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
+        NgxPaginationModule
     ],
     declarations: [FilterBarComponent,DashboardComponent, VisitProductivityComponent, AttendanceReportComponent, MerchandiserListComponent, MerchandiserProductivityComponent, ShopDetailComponent,RawDataComponent, UniqueBaseProductivityComponent]
 })
