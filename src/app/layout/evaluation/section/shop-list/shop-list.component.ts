@@ -52,7 +52,7 @@ export class ShopListComponent implements OnInit {
       data => {
         // console.log(data);
         this.tableData = data;
-        if (this.tableData.length == 0) {
+        if (this.tableData.length === 0) {
           this.loading = false;
           this.toastr.info('No record found.');
           setTimeout(() => {
@@ -68,6 +68,6 @@ export class ShopListComponent implements OnInit {
   }
 
   gotoNewPage(item) {
-    if (item.flag != 1) window.open(`${environment.hash}dashboard/evaluation/shop_list/details/${item.merchandiser_shop_id}`, '_blank');
+    if (item.flag !== 1) { window.open(`${environment.hash}dashboard/evaluation/shop_list/details/${item.id}`, '_blank'); }
   }
 }
