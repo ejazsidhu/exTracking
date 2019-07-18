@@ -45,13 +45,13 @@
         <table class="table table-bordered table-hover" style="min-width:820px !important">
             <thead style="background:lightgray">
                 <tr>
-                    <th *ngFor="let item of tagList">
+                    <th *ngFor="let item of tagList" style="width: 60%">
                         {{item.heading}}
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <td *ngFor="let item of tagList">
+                <td *ngFor="let item of tagList" style="width: 60%">
                     <tr *ngFor="let value of item?.values; let i=index">
                         {{value}}
                         <hr>

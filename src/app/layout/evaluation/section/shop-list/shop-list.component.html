@@ -13,12 +13,14 @@
                                 <!-- <th>Shop Id</th> -->
                                 <!-- <th>Shop Code</th> -->
                                 <th>Shop Name</th>
-                                <th>Channel Name</th>
+                                <!-- <th>Channel Name</th> -->
                                 <th>Address</th>
+                                <!-- <th>Address</th> -->
                                 <!-- <th>VO Code</th> -->
                                 <!-- <th>VO Name</th> -->
+                                <th>Category</th>
                                 <th>Shop Remarks</th>
-                                <th>Status</th>
+                                <!-- <th>Status</th> -->
                             </thead>
                             <tbody *ngIf="headingsList">
 
@@ -27,17 +29,23 @@
 
                                     <td [ngClass]="{'isEvaluated':item.flag!=1}" (click)="gotoNewPage(item)">
                                         {{item?.shop_title}}</td>
-                                    <td [ngClass]="{'isEvaluated':item.flag!=1}" (click)="gotoNewPage(item)">
-                                        {{item?.channel_title}}</td>
-                                    <td [ngClass]="{'isEvaluated':item.flag!=1}" style="word-break:break-word;width:350px;" (click)="gotoNewPage(item)">
+                                    <!-- <td [ngClass]="{'isEvaluated':item.flag!=1}" (click)="gotoNewPage(item)">
+                                        {{item?.channel_title}}</td> -->
+                                    <td [ngClass]="{'isEvaluated':item.flag!=1}"
+                                        style="word-break:break-word;" (click)="gotoNewPage(item)">
                                         {{item?.address}}</td>
+                                    <td [ngClass]="{'isEvaluated':item.flag!=1}"
+                                        style="word-break:break-word;" (click)="gotoNewPage(item)">
+                                        {{item?.category}}</td>
                                     <!-- <td [ngClass]="{'isEvaluated':item.flag!=1}" style="width:100px;" (click)="gotoNewPage(item)">{{item?.vo_code}}</td>
                                     <td [ngClass]="{'isEvaluated':item.flag!=1}" (click)="gotoNewPage(item)">
                                         {{item?.vo_name}}</td> -->
-                                    <td [ngClass]="{'isEvaluated':item.flag!=1}" style="word-break:break-word;width:350px;" (click)="gotoNewPage(item)">
+                                    <td [ngClass]="{'isEvaluated':item.flag!=1}"
+                                        style="word-break:break-word;" (click)="gotoNewPage(item)">
                                         {{item?.remarks}}</td>
+
                                     <!-- <td>{{item?.remarks}}</td> -->
-                                    <td>{{item?.evaluation_status}}</td>
+                                    <!-- <td>{{item?.evaluation_status}}</td> -->
                                 </tr>
 
                             </tbody>
